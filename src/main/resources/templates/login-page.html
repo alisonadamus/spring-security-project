@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Login</h1>
+<form th:action="@{/login}" method="post">
+    <div>
+        <label for="username">Login:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>
+
+<div th:if="${param.error}">
+    <p style="color: red;">Incorrect login or password.</p>
+</div>
+<div>
+    <a href="/oauth2/authorization/google">Login with Google</a> |
+    <a href="/oauth2/authorization/github">Login with GitHub</a>
+</div>
+<a th:href="@{/register}">Registration</a>
+</body>
+</html>
